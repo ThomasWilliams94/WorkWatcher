@@ -30,5 +30,42 @@ namespace WorkWatcher
 
         #endregion
 
+        #region Properties
+
+        public List<Topic> Topics
+        {
+            get
+            {
+                return itsTopics;
+            }
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        public bool VerifyNewTopicName(string potentialNewName, out string message)
+        {
+            message = "";
+
+            if (potentialNewName == "")
+            {
+                message = "Please enter a name.";
+                return false;
+            }
+
+            foreach (Topic topic in itsTopics)
+            {
+                if(topic.Name == potentialNewName) 
+                {
+                    message = "Topic name already exists. Please try a different name.";
+                    return false;
+                }   
+            }
+
+            return true;
+        }
+
+        #endregion
     }
 }
