@@ -31,10 +31,10 @@
             this.itsStatusStrip = new System.Windows.Forms.StatusStrip();
             this.itsMenuStrip = new System.Windows.Forms.MenuStrip();
             this.itsMenuItemFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.itsFileMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuItemEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuItemView = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.itsFileMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +67,13 @@
             this.itsMenuItemFile.Size = new System.Drawing.Size(37, 20);
             this.itsMenuItemFile.Text = "File";
             // 
+            // itsFileMenuItemExit
+            // 
+            this.itsFileMenuItemExit.Name = "itsFileMenuItemExit";
+            this.itsFileMenuItemExit.Size = new System.Drawing.Size(152, 22);
+            this.itsFileMenuItemExit.Text = "Exit";
+            this.itsFileMenuItemExit.Click += new System.EventHandler(this.ItsFileMenuItemExit_Click);
+            // 
             // itsMenuItemEdit
             // 
             this.itsMenuItemEdit.Name = "itsMenuItemEdit";
@@ -84,13 +91,6 @@
             this.itsMenuItemHelp.Name = "itsMenuItemHelp";
             this.itsMenuItemHelp.Size = new System.Drawing.Size(44, 20);
             this.itsMenuItemHelp.Text = "Help";
-            // 
-            // itsFileMenuItemExit
-            // 
-            this.itsFileMenuItemExit.Name = "itsFileMenuItemExit";
-            this.itsFileMenuItemExit.Size = new System.Drawing.Size(152, 22);
-            this.itsFileMenuItemExit.Text = "Exit";
-            this.itsFileMenuItemExit.Click += new System.EventHandler(this.ItsFileMenuItemExit_Click);
             // 
             // MainForm
             // 

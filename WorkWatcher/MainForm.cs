@@ -14,13 +14,25 @@ namespace WorkWatcher
     {
         #region Members
 
+        /// <summary>
+        /// The main panel that the main form will contain
+        /// </summary>
+        private MainPanel itsMainPanel;
+
         #endregion
 
         #region Constructor
 
+        
         public MainForm()
         {
             InitializeComponent();
+
+            // Create the main panel and add it to the main form
+            itsMainPanel = new MainPanel();
+            itsMainPanel.Dock = DockStyle.Fill;            
+            this.Controls.Add(itsMainPanel);
+            itsMainPanel.BringToFront(); // This stops the panel from being covered by the tool and status strips
         }
 
         #endregion
