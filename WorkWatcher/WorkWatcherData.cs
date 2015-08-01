@@ -10,7 +10,7 @@ namespace WorkWatcher
     /// Contains all the data for the application, including details of 
     /// Topics, Tasks, Days, etc.
     /// </summary>
-    class WorkWatcherData
+    public class WorkWatcherData
     {
         #region Members
 
@@ -23,7 +23,10 @@ namespace WorkWatcher
 
         #region Constructor
 
-        public WorkWatcherData();
+        public WorkWatcherData()
+        {
+
+        }
 
         #endregion
 
