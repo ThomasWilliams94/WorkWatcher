@@ -47,7 +47,7 @@ namespace WorkWatcher
             AddColoursToList();
 
             // Create the main panel and add it to the main form
-            itsMainPanel = new MainPanel();
+            itsMainPanel = new MainPanel(this);
             itsMainPanel.Dock = DockStyle.Fill;            
             this.Controls.Add(itsMainPanel);
             itsMainPanel.BringToFront(); // This stops the panel from being covered by the tool and status strips

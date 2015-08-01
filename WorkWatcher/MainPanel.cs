@@ -12,9 +12,25 @@ namespace WorkWatcher
 {
     public partial class MainPanel : UserControl
     {
-        public MainPanel()
+        #region Members
+
+        /// <summary>
+        /// The owning form (i.e. the MainPanel's parent).
+        /// </summary>
+        MainForm itsMainForm;
+
+        #endregion
+
+        #region Constructor
+
+        public MainPanel(MainForm parentForm)
         {
             InitializeComponent();
+
+            itsMainForm = parentForm;
         }
+
+        #endregion
+
     }
 }
