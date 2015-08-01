@@ -39,6 +39,7 @@
             // 
             // itsSplitContainerVertical
             // 
+            this.itsSplitContainerVertical.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.itsSplitContainerVertical.Dock = System.Windows.Forms.DockStyle.Fill;
             this.itsSplitContainerVertical.Location = new System.Drawing.Point(0, 0);
             this.itsSplitContainerVertical.Name = "itsSplitContainerVertical";
@@ -52,12 +53,13 @@
             // 
             // itsSplitContainerHorizontal
             // 
+            this.itsSplitContainerHorizontal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.itsSplitContainerHorizontal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.itsSplitContainerHorizontal.Location = new System.Drawing.Point(0, 0);
             this.itsSplitContainerHorizontal.Name = "itsSplitContainerHorizontal";
             this.itsSplitContainerHorizontal.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.itsSplitContainerHorizontal.Size = new System.Drawing.Size(600, 586);
-            this.itsSplitContainerHorizontal.SplitterDistance = 299;
+            this.itsSplitContainerHorizontal.Size = new System.Drawing.Size(598, 584);
+            this.itsSplitContainerHorizontal.SplitterDistance = 297;
             this.itsSplitContainerHorizontal.TabIndex = 0;
             // 
             // MainPanel
