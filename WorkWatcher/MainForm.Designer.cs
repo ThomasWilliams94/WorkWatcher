@@ -90,6 +90,7 @@
             this.itsFileMenuItemExit.Name = "itsFileMenuItemExit";
             this.itsFileMenuItemExit.Size = new System.Drawing.Size(152, 22);
             this.itsFileMenuItemExit.Text = "Exit";
+            this.itsFileMenuItemExit.Click += new System.EventHandler(this.ItsFileMenuItemExit_Click);
             // 
             // MainForm
             // 

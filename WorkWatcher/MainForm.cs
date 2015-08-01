@@ -16,5 +16,10 @@ namespace WorkWatcher
         {
             InitializeComponent();
         }
+
+        private void ItsFileMenuItemExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
