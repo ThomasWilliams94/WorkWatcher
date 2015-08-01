@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorkWatcher
 {
-    class Topic
+    public class Topic
     {
         #region Members
 
