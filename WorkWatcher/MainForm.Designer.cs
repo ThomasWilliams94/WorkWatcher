@@ -102,6 +102,7 @@
             this.MainMenuStrip = this.itsMenuStrip;
             this.Name = "MainForm";
             this.Text = "Work Watcher ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.itsMenuStrip.ResumeLayout(false);
             this.itsMenuStrip.PerformLayout();
             this.ResumeLayout(false);
