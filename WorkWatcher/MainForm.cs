@@ -21,6 +21,12 @@ namespace WorkWatcher
         private MainPanel itsMainPanel;
 
         /// <summary>
+        /// Instance of the WorkWatcherData class, where the information is kept
+        /// for the running application
+        /// </summary>
+        private WorkWatcherData itsWorkWatcherData;
+
+        /// <summary>
         /// Colours for the topics... hard code a few colours for now, 
         /// until users can select the colour themselves. It's difficult
         /// to get N distinct colours, and I don't have time to write a method
@@ -45,6 +51,25 @@ namespace WorkWatcher
             itsMainPanel.Dock = DockStyle.Fill;            
             this.Controls.Add(itsMainPanel);
             itsMainPanel.BringToFront(); // This stops the panel from being covered by the tool and status strips
+
+            // Create a WorkWatcherData instance
+            itsWorkWatcherData = new WorkWatcherData();
+        }
+
+        #endregion
+
+        #region Properties
+
+        public WorkWatcherData WorkWatcherData
+        {
+            get
+            {
+                return itsWorkWatcherData;
+            }
+            set
+            {
+                itsWorkWatcherData = value;
+            }
         }
 
         #endregion
