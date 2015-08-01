@@ -60,6 +60,14 @@ namespace WorkWatcher
 
         #region Properties
 
+        public List<Color> Colours
+        {
+            get
+            {
+                return itsColours;
+            }
+        }
+
         public WorkWatcherData WorkWatcherData
         {
             get
@@ -101,5 +109,6 @@ namespace WorkWatcher
         }
 
         #endregion
+
     }
 }
