@@ -74,7 +74,7 @@
             this.itsButtonAddTopic.Name = "itsButtonAddTopic";
             this.itsButtonAddTopic.Size = new System.Drawing.Size(75, 23);
             this.itsButtonAddTopic.TabIndex = 5;
-            this.itsButtonAddTopic.Text = "Add Topic";
+            this.itsButtonAddTopic.Text = "Add";
             this.itsButtonAddTopic.UseVisualStyleBackColor = true;
             this.itsButtonAddTopic.Visible = false;
             this.itsButtonAddTopic.Click += new System.EventHandler(this.ItsButtonAddTopic_Click);
@@ -85,7 +85,7 @@
             this.itsButtonEditTopic.Name = "itsButtonEditTopic";
             this.itsButtonEditTopic.Size = new System.Drawing.Size(75, 23);
             this.itsButtonEditTopic.TabIndex = 6;
-            this.itsButtonEditTopic.Text = "Edit Topic";
+            this.itsButtonEditTopic.Text = "Done";
             this.itsButtonEditTopic.UseVisualStyleBackColor = true;
             this.itsButtonEditTopic.Visible = false;
             this.itsButtonEditTopic.Click += new System.EventHandler(this.ItsButtonEditTopic_Click);

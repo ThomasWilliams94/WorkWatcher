@@ -43,8 +43,9 @@ namespace WorkWatcher
 
             itsMainPanel = parentPanel;
 
-            // We show the add topic button only.
+            // We show the add topic button only and update the text
             itsButtonAddTopic.Visible = true;
+            this.Text = "Add new topic";
         }
 
         /// <summary>
@@ -65,6 +66,7 @@ namespace WorkWatcher
 
             // We show the edit topic button only
             itsButtonEditTopic.Visible = true;
+            this.Text = "Edit topic";
         }
 
         #endregion
