@@ -19,6 +19,11 @@ namespace WorkWatcher
         /// </summary>
         private List<Topic> itsTopics = new List<Topic>();
 
+        /// <summary>
+        /// A string to contain the error message when an action goes wrong
+        /// </summary>
+        private string itsErrorMessage = "";
+
         #endregion
 
         #region Constructor
@@ -40,17 +45,59 @@ namespace WorkWatcher
             }
         }
 
+        public string ErrorMessage
+        {
+            get
+            {
+                return itsErrorMessage;
+            }
+        }
+
         #endregion
 
         #region Public Methods
 
-        public bool VerifyNewTopicName(string potentialNewName, out string message)
+        /// <summary>
+        /// Add a new topic to itsTopics. 
+        /// </summary>
+        /// <param name="name">Name of new topic</param>
+        /// <param name="colour">Colour of new topic</param>
+        /// <param name="description">Description of new topic</param>
+        /// <returns>
+        /// true   -- if the topic is successfully added
+        /// false  -- if the topic is invalid and was not added.
+        /// </returns>
+        public bool AddNewTopic(string name, System.Drawing.Color colour, string description)
         {
-            message = "";
+            // Check that the name of the topic is valid (i.e. it cannot already
+            // exist or be the empty string)
+            if (!VerifyNewTopicName(name))
+            {
+                return false;
+            }
 
+            // Create and add the new topic
+            Topic newTopic = new Topic(name, colour, description);
+            itsTopics.Add(newTopic);
+
+            return true;
+        }
+
+        /// <summary>
+        /// Checks the a potential new name for a topic is valid, i.e.
+        /// it cannot already exist or be the empty string
+        /// </summary>
+        /// <param name="potentialNewName">The potentail new name of a topic</param>
+        /// <returns>
+        /// False if the name already exists
+        /// False if the name is the empty string
+        /// True otherwise
+        /// </returns>
+        public bool VerifyNewTopicName(string potentialNewName)
+        {
             if (potentialNewName == "")
             {
-                message = "Please enter a name.";
+                itsErrorMessage = "Please enter a name.";
                 return false;
             }
 
@@ -58,7 +105,7 @@ namespace WorkWatcher
             {
                 if(topic.Name == potentialNewName) 
                 {
-                    message = "Topic name already exists. Please try a different name.";
+                    itsErrorMessage = "Topic name already exists. Please try a different name.";
                     return false;
                 }   
             }

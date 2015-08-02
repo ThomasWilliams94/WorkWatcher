@@ -14,8 +14,14 @@ namespace WorkWatcher
     {
         #region Members
 
+        /// <summary>
+        /// The main panel, owning panel.
+        /// </summary>
         private MainPanel itsMainPanel;
 
+        /// <summary>
+        /// The message to display if something goes wrong.
+        /// </summary>
         string itsMessage = "";
 
         #endregion
@@ -31,34 +37,18 @@ namespace WorkWatcher
 
         #endregion
 
-        #region Private Methods
-
-        private bool VerifyInput()
-        {
-            // Verify the topic name with WorkWatcherData
-            bool nameOK = itsMainPanel.MainForm.WorkWatcherData.VerifyNewTopicName(itsTextBoxName.Text.Trim(), out itsMessage);
-
-            // For now, only the name needs to be verified (colour and description can be anything). 
-            return nameOK;
-        }
-
-        #endregion
-
         private void ItsButtonAddTopic_Click(object sender, EventArgs e)
         {
-            // Verify the input
-            if (VerifyInput())
-            {
-                // Create a new topic and add it to the WorkWatcherData, then close. 
-                Topic newTopic = new Topic(itsTextBoxName.Text.Trim(), itsMainPanel.MainForm.Colours[itsMainPanel.MainForm.WorkWatcherData.Topics.Count % itsMainPanel.MainForm.Colours.Count], itsTextBoxDescription.Text);
-                itsMainPanel.MainForm.WorkWatcherData.Topics.Add(newTopic);
-
+            // Try to add the new topic. If successful, close the form and return.
+            if (itsMainPanel.MainForm.WorkWatcherData.AddNewTopic(itsTextBoxName.Text.Trim(), itsMainPanel.MainForm.Colours[itsMainPanel.MainForm.WorkWatcherData.Topics.Count % itsMainPanel.MainForm.Colours.Count], itsTextBoxDescription.Text))
+            {                
                 Close();
                 return;
             }
-            
+
             // If we get here, something was wrong with the input so display a message box 
-            // so user knows what to correct.
+            // with the error in WorkWatcherData so user knows what to correct.
+            itsMessage = itsMainPanel.MainForm.WorkWatcherData.ErrorMessage;
             MessageBox.Show(itsMessage, "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         }
     }
