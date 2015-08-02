@@ -49,6 +49,10 @@ namespace WorkWatcher
             {
                 return itsName;
             }
+            set
+            {
+                itsName = value;
+            }
         }
 
         public string Description
@@ -56,6 +60,10 @@ namespace WorkWatcher
             get
             {
                 return itsDescription;
+            }
+            set
+            {
+                itsDescription = value;
             }
         }
 
