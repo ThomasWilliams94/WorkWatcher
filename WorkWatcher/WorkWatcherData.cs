@@ -83,6 +83,7 @@ namespace WorkWatcher
             return true;
         }
 
+
         /// <summary>
         /// Deletes the topic with the specified name
         /// </summary>
@@ -108,6 +109,40 @@ namespace WorkWatcher
             return false;
         }
 
+        /// <summary>
+        /// Given a topic, it updates its name if the new name is valid
+        /// </summary>
+        /// <param name="oldTopic">The topic to update</param>
+        /// <param name="newName">The new name for the topic</param>
+        /// <returns>
+        /// False if update was not possible
+        /// True if update was successful
+        /// </returns>
+        public bool UpdateTopicName(Topic oldTopic, string newName)
+        {
+            if (VerifyNewTopicName(newName))
+            {
+                itsTopics[itsTopics.IndexOf(oldTopic)].Name = newName;
+                return true;
+            }
+            
+            return false;
+        }
+
+        /// <summary>
+        /// Given a topic, updates its description
+        /// </summary>
+        /// <param name="oldTopic">The topic to update</param>
+        /// <param name="newDescription">The new description for the topic</param>
+        /// <returns>
+        /// True... (all descriptions are valid).
+        /// </returns>
+        public bool UpdateTopicDescription(Topic oldTopic, string newDescription)
+        {
+            itsTopics[itsTopics.IndexOf(oldTopic)].Description = newDescription;
+            
+            return true;
+        }
         /// <summary>
         /// Checks the a potential new name for a topic is valid, i.e.
         /// it cannot already exist or be the empty string
