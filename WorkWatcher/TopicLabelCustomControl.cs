@@ -12,12 +12,24 @@ namespace WorkWatcher
 {
     public partial class TopicLabelCustomControl : Control
     {
+        #region Members
+
+        /// <summary>
+        /// The main panel, owning panel.
+        /// </summary>
+        MainPanel itsMainPanel;
+
+        #endregion
+
         #region Constructor
 
-        public TopicLabelCustomControl()
+        public TopicLabelCustomControl(MainPanel parentPanel)
         {
             InitializeComponent();
 
+            itsMainPanel = parentPanel;
+
+            // Set some of the properties for itsTopicLabel
             itsTopicLabel.AutoSize = false;
             itsTopicLabel.Width = 100;
 
@@ -71,8 +83,18 @@ namespace WorkWatcher
         /// <param name="me"></param>
         private void ItsContextMenuDeleteTopic_Click(Object sender, EventArgs me)
         {
-            // Show a message box for now while we restructure code.
-            MessageBox.Show("Clicked delete item.");
+            // Ask for the topic to be deleted
+            if (itsMainPanel.MainForm.WorkWatcherData.DeleteTopicUsingName(itsTopicLabel.Text))
+            {
+                // Topic successfully deleted, so update panel.
+                itsMainPanel.UpdateTopicsGroupBoxPanel();
+                return;
+            }
+
+            // If we get here, there was an error so tell the user.
+            MessageBox.Show(itsMainPanel.MainForm.WorkWatcherData.ErrorMessage, "Error deleting topic", 
+                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+
         }
 
         #endregion

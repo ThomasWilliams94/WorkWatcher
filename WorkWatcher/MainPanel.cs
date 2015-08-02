@@ -53,15 +53,11 @@ namespace WorkWatcher
             ItsGroupBoxTopicsAddNewLabel_Click(this, e);
         }
 
-        #endregion
-
-        #region Private Methods
-
         /// <summary>
         /// Updates the panel on which Topic names and descriptions appear
         /// when they have been added.
         /// </summary>
-        private void UpdateTopicsGroupBoxPanel()
+        internal void UpdateTopicsGroupBoxPanel()
         {
             itsGroupBoxTopicsPanel.Controls.Clear();
 
@@ -69,7 +65,7 @@ namespace WorkWatcher
             foreach (Topic topic in itsMainForm.WorkWatcherData.Topics)
             {
                 //Label topicLabel = new Label();
-                TopicLabelCustomControl topicLabelCustom = new TopicLabelCustomControl();
+                TopicLabelCustomControl topicLabelCustom = new TopicLabelCustomControl(this);
                 topicLabelCustom.TopicLabel.Text = topic.Name;
                 topicLabelCustom.TopicLabel.Location = new Point(10, 10 + topicCount * 25);
                 itsGroupBoxTopicsPanel.Controls.Add(topicLabelCustom.TopicLabel);
@@ -84,6 +80,12 @@ namespace WorkWatcher
                 ++topicCount;
             }
         }
+
+        #endregion
+
+        #region Private Methods
+
+        
 
         #endregion
 

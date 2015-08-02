@@ -84,6 +84,31 @@ namespace WorkWatcher
         }
 
         /// <summary>
+        /// Deletes the topic with the specified name
+        /// </summary>
+        /// <param name="name">The name of the topic to be deleted.</param>
+        /// <returns>
+        /// True if the topic was successfully deleted.
+        /// False if the topic was not found.
+        /// </returns>
+        public bool DeleteTopicUsingName(string name)
+        {
+            // Look for the topic with the specified name and delete it
+            foreach (Topic topic in itsTopics)
+            {
+                if (topic.Name == name)
+                {
+                    itsTopics.Remove(topic);
+                    return true;
+                }
+            }
+
+            // If we get out here, the topic name was not found so something went wrong
+            itsErrorMessage = "Could not find topic: '" + name + "'.";
+            return false;
+        }
+
+        /// <summary>
         /// Checks the a potential new name for a topic is valid, i.e.
         /// it cannot already exist or be the empty string
         /// </summary>
