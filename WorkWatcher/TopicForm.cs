@@ -22,17 +22,49 @@ namespace WorkWatcher
         /// <summary>
         /// The message to display if something goes wrong.
         /// </summary>
-        string itsMessage = "";
+        private string itsMessage = "";
+
+        /// <summary>
+        /// If editing a topic, we use this to compare the input
+        /// </summary>
+        private Topic itsExistingTopic = null;
 
         #endregion
 
         #region Constructor
 
+        /// <summary>
+        /// This constructor is used when adding a new topic
+        /// </summary>
+        /// <param name="parentPanel"></param>
         public TopicForm(MainPanel parentPanel)
         {
             InitializeComponent();
 
             itsMainPanel = parentPanel;
+
+            // We show the add topic button only.
+            itsButtonAddTopic.Visible = true;
+        }
+
+        /// <summary>
+        /// This constructor is used when editing an existing topic
+        /// </summary>
+        /// <param name="parentPanel"></param>
+        /// <param name="topicToEdit"></param>
+        public TopicForm(MainPanel parentPanel, Topic topicToEdit)
+        {
+            InitializeComponent();
+
+            itsMainPanel = parentPanel;
+            itsExistingTopic = topicToEdit;
+ 
+            // fill in the form with the existing values
+            itsTextBoxName.Text = topicToEdit.Name;
+            itsTextBoxDescription.Text = topicToEdit.Description;
+
+            // We show the edit topic button only
+            itsButtonEditTopic.Visible = true;
         }
 
         #endregion
@@ -40,7 +72,7 @@ namespace WorkWatcher
         private void ItsButtonAddTopic_Click(object sender, EventArgs e)
         {
             // Try to add the new topic. If successful, close the form and return.
-            if (itsMainPanel.MainForm.WorkWatcherData.AddNewTopic(itsTextBoxName.Text.Trim(), itsMainPanel.MainForm.Colours[itsMainPanel.MainForm.WorkWatcherData.Topics.Count % itsMainPanel.MainForm.Colours.Count], itsTextBoxDescription.Text))
+            if (itsMainPanel.MainForm.WorkWatcherData.AddNewTopic(itsTextBoxName.Text.Trim(), itsMainPanel.MainForm.Colours[itsMainPanel.MainForm.WorkWatcherData.Topics.Count % itsMainPanel.MainForm.Colours.Count], itsTextBoxDescription.Text.Trim()))
             {                
                 Close();
                 return;
@@ -50,6 +82,44 @@ namespace WorkWatcher
             // with the error in WorkWatcherData so user knows what to correct.
             itsMessage = itsMainPanel.MainForm.WorkWatcherData.ErrorMessage;
             MessageBox.Show(itsMessage, "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+        }
+
+        private void ItsButtonEditTopic_Click(object sender, EventArgs e)
+        {
+            // We want to update an existing topic. 
+            if (itsExistingTopic == null)
+            {
+                itsMessage = "No topic found for editing.";
+                MessageBox.Show(itsMessage, "No topic found", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                return;
+            }
+
+            // Has the name changed?
+            if (itsTextBoxName.Text.Trim() != itsExistingTopic.Name)
+            {
+                // If the update failed, display a message box
+                if (!itsMainPanel.MainForm.WorkWatcherData.UpdateTopicName(itsExistingTopic, itsTextBoxName.Text.Trim()))
+                {
+                    itsMessage = itsMainPanel.MainForm.WorkWatcherData.ErrorMessage;
+                    MessageBox.Show(itsMessage, "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+            }            
+
+            // Has the description changed?
+            if (itsTextBoxDescription.Text.Trim() != itsExistingTopic.Description)
+            {
+                // If the update fails, display a message box
+                if (!itsMainPanel.MainForm.WorkWatcherData.UpdateTopicDescription(itsExistingTopic, itsTextBoxDescription.Text.Trim()))
+                {
+                    itsMessage = itsMainPanel.MainForm.WorkWatcherData.ErrorMessage;
+                    MessageBox.Show(itsMessage, "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+            }
+
+            Close();
+            return;
         }
     }
 }

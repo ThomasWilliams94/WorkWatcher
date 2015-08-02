@@ -33,6 +33,7 @@
             this.itsTextBoxName = new System.Windows.Forms.TextBox();
             this.itsTextBoxDescription = new System.Windows.Forms.TextBox();
             this.itsButtonAddTopic = new System.Windows.Forms.Button();
+            this.itsButtonEditTopic = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // itsLabelName
@@ -75,7 +76,19 @@
             this.itsButtonAddTopic.TabIndex = 5;
             this.itsButtonAddTopic.Text = "Add Topic";
             this.itsButtonAddTopic.UseVisualStyleBackColor = true;
+            this.itsButtonAddTopic.Visible = false;
             this.itsButtonAddTopic.Click += new System.EventHandler(this.ItsButtonAddTopic_Click);
+            // 
+            // itsButtonEditTopic
+            // 
+            this.itsButtonEditTopic.Location = new System.Drawing.Point(179, 103);
+            this.itsButtonEditTopic.Name = "itsButtonEditTopic";
+            this.itsButtonEditTopic.Size = new System.Drawing.Size(75, 23);
+            this.itsButtonEditTopic.TabIndex = 6;
+            this.itsButtonEditTopic.Text = "Edit Topic";
+            this.itsButtonEditTopic.UseVisualStyleBackColor = true;
+            this.itsButtonEditTopic.Visible = false;
+            this.itsButtonEditTopic.Click += new System.EventHandler(this.ItsButtonEditTopic_Click);
             // 
             // TopicForm
             // 
@@ -83,6 +96,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(266, 138);
+            this.Controls.Add(this.itsButtonEditTopic);
             this.Controls.Add(this.itsButtonAddTopic);
             this.Controls.Add(this.itsTextBoxDescription);
             this.Controls.Add(this.itsTextBoxName);
@@ -105,5 +119,6 @@
         private System.Windows.Forms.TextBox itsTextBoxName;
         private System.Windows.Forms.TextBox itsTextBoxDescription;
         private System.Windows.Forms.Button itsButtonAddTopic;
+        private System.Windows.Forms.Button itsButtonEditTopic;
     }
 }
