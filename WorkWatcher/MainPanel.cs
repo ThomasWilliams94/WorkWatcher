@@ -68,16 +68,17 @@ namespace WorkWatcher
             int topicCount = 0;
             foreach (Topic topic in itsMainForm.WorkWatcherData.Topics)
             {
-                Label topicLabel = new Label();
-                topicLabel.Text = topic.Name;
-                topicLabel.Location = new Point(10, 10 + topicCount * 25);
-                itsGroupBoxTopicsPanel.Controls.Add(topicLabel);
+                //Label topicLabel = new Label();
+                TopicLabelCustomControl topicLabelCustom = new TopicLabelCustomControl();
+                topicLabelCustom.TopicLabel.Text = topic.Name;
+                topicLabelCustom.TopicLabel.Location = new Point(10, 10 + topicCount * 25);
+                itsGroupBoxTopicsPanel.Controls.Add(topicLabelCustom.TopicLabel);
 
                 Label descripLabel = new Label();
                 descripLabel.Text = topic.Description;
                 descripLabel.Font = new Font(DefaultFont, FontStyle.Italic);
                 descripLabel.AutoEllipsis = true;
-                descripLabel.Location = new Point(10 + topicLabel.Width + 20, topicLabel.Location.Y);
+                descripLabel.Location = new Point(10 + topicLabelCustom.TopicLabel.Width + 20, topicLabelCustom.TopicLabel.Location.Y);
                 itsGroupBoxTopicsPanel.Controls.Add(descripLabel);
 
                 ++topicCount;
