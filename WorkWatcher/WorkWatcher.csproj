@@ -65,6 +65,12 @@
     <Compile Include="TopicForm.Designer.cs">
       <DependentUpon>TopicForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TopicLabelCustomControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TopicLabelCustomControl.Designer.cs">
+      <DependentUpon>TopicLabelCustomControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkWatcherData.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -83,6 +89,9 @@
     </Compile>
     <EmbeddedResource Include="TopicForm.resx">
       <DependentUpon>TopicForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopicLabelCustomControl.resx">
+      <DependentUpon>TopicLabelCustomControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
