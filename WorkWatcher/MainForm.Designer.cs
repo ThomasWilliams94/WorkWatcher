@@ -33,6 +33,7 @@
             this.itsMenuItemFile = new System.Windows.Forms.ToolStripMenuItem();
             this.itsFileMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuItemEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.itsEditMenuItemNewTopic = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuItemView = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuStrip.SuspendLayout();
@@ -70,15 +71,24 @@
             // itsFileMenuItemExit
             // 
             this.itsFileMenuItemExit.Name = "itsFileMenuItemExit";
-            this.itsFileMenuItemExit.Size = new System.Drawing.Size(152, 22);
+            this.itsFileMenuItemExit.Size = new System.Drawing.Size(92, 22);
             this.itsFileMenuItemExit.Text = "Exit";
             this.itsFileMenuItemExit.Click += new System.EventHandler(this.ItsFileMenuItemExit_Click);
             // 
             // itsMenuItemEdit
             // 
+            this.itsMenuItemEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itsEditMenuItemNewTopic});
             this.itsMenuItemEdit.Name = "itsMenuItemEdit";
             this.itsMenuItemEdit.Size = new System.Drawing.Size(39, 20);
             this.itsMenuItemEdit.Text = "Edit";
+            // 
+            // itsEditMenuItemNewTopic
+            // 
+            this.itsEditMenuItemNewTopic.Name = "itsEditMenuItemNewTopic";
+            this.itsEditMenuItemNewTopic.Size = new System.Drawing.Size(165, 22);
+            this.itsEditMenuItemNewTopic.Text = "Add New Topic...";
+            this.itsEditMenuItemNewTopic.Click += new System.EventHandler(this.ItsEditMenuItemNewTopic_Click);
             // 
             // itsMenuItemView
             // 
@@ -119,6 +129,7 @@
         private System.Windows.Forms.ToolStripMenuItem itsMenuItemEdit;
         private System.Windows.Forms.ToolStripMenuItem itsMenuItemView;
         private System.Windows.Forms.ToolStripMenuItem itsMenuItemHelp;
+        private System.Windows.Forms.ToolStripMenuItem itsEditMenuItemNewTopic;
     }
 }
 

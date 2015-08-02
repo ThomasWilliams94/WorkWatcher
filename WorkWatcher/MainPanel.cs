@@ -45,6 +45,16 @@ namespace WorkWatcher
 
         #endregion
 
+        #region Internal Methods
+
+        internal void OnAddNewTopic()
+        {
+            EventArgs e = new EventArgs();
+            ItsGroupBoxTopicsAddNewLabel_Click(this, e);
+        }
+
+        #endregion
+
         #region Private Methods
 
         /// <summary>

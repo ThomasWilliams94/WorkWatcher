@@ -110,5 +110,12 @@ namespace WorkWatcher
 
         #endregion
 
+        private void ItsEditMenuItemNewTopic_Click(object sender, EventArgs e)
+        {
+            // Fire the Click event in MainPanel that adds a new topic
+            itsMainPanel.OnAddNewTopic();
+        }
+
+
     }
 }
