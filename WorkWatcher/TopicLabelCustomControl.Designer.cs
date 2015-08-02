@@ -45,6 +45,7 @@
             this.itsTopicLabel.Size = new System.Drawing.Size(100, 23);
             this.itsTopicLabel.TabIndex = 0;
             this.itsTopicLabel.Text = "Topic Custom Label";
+            this.itsTopicLabel.DoubleClick += new System.EventHandler(this.ItsContextMenuEditTopic_Click);
             // 
             // itsContextMenu
             // 
