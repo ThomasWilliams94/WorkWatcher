@@ -71,8 +71,21 @@ namespace WorkWatcher
         /// <param name="me"></param>
         private void ItsContextMenuEditTopic_Click(Object sender, EventArgs me)
         {
-            // Show a message box for now while we restructure code. 
-            MessageBox.Show("Clicked edit item.");
+            // find the topic to update
+            foreach (Topic topic in itsMainPanel.MainForm.WorkWatcherData.Topics)
+            {
+                if (topic.Name == itsTopicLabel.Text)
+                {
+                    // Show a topicform, giving it two arguments so that it knows
+                    // this is an edit not an add.
+                    TopicForm newTopicForm = new TopicForm(itsMainPanel, topic);
+                    newTopicForm.ShowDialog();
+
+                    // Update the Topics Group box when we're done.
+                    itsMainPanel.UpdateTopicsGroupBoxPanel();
+                    return;
+                }
+            }
         }
 
         /// <summary>
