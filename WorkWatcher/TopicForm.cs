@@ -47,6 +47,7 @@ namespace WorkWatcher
             itsButtonAddTopic.Visible = true;
             this.Text = "Add new topic";
             this.AcceptButton = itsButtonAddTopic;
+            this.KeyPreview = true;
         }
 
         /// <summary>
@@ -69,6 +70,7 @@ namespace WorkWatcher
             itsButtonEditTopic.Visible = true;
             this.Text = "Edit topic";
             this.AcceptButton = itsButtonEditTopic;
+            this.KeyPreview = true;
         }
 
         #endregion
@@ -115,7 +117,21 @@ namespace WorkWatcher
             {
                 Close();
                 return;
-            }                  
+            }
+        }
+
+        /// <summary>
+        /// If the user presses Esc, close the form.  
+        /// NB: Had to set KeyPreview = true in the constructors for the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TopicForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
         }
     }
 }

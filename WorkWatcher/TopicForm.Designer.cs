@@ -81,6 +81,7 @@
             // 
             // itsButtonEditTopic
             // 
+            this.itsButtonEditTopic.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.itsButtonEditTopic.Location = new System.Drawing.Point(179, 103);
             this.itsButtonEditTopic.Name = "itsButtonEditTopic";
             this.itsButtonEditTopic.Size = new System.Drawing.Size(75, 23);
@@ -107,6 +108,7 @@
             this.MinimizeBox = false;
             this.Name = "TopicForm";
             this.Text = "Add new topic";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TopicForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
