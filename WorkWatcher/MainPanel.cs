@@ -95,6 +95,23 @@ namespace WorkWatcher
             return true;
 
         }
+
+        internal bool DeleteTopicUsingName(string topicName)
+        {
+            // Attempt to delete topic
+            if (!itsMainForm.WorkWatcherData.DeleteTopicUsingName(topicName))
+            {
+                MessageBox.Show(itsMainForm.WorkWatcherData.ErrorMessage, "Invalid input",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                return false;
+            }
+
+            // Successfully updated so update group box
+            UpdateTopicsGroupBoxPanel();
+
+            return true;
+        }
+
         /// <summary>
         /// Updates the panel on which Topic names and descriptions appear
         /// when they have been added.

@@ -93,17 +93,10 @@ namespace WorkWatcher
         private void ItsContextMenuDeleteTopic_Click(Object sender, EventArgs me)
         {
             // Ask for the topic to be deleted
-            if (itsMainPanel.MainForm.WorkWatcherData.DeleteTopicUsingName(itsTopicLabel.Text))
-            {
-                // Topic successfully deleted, so update panel.
-                itsMainPanel.UpdateTopicsGroupBoxPanel();
+            if (itsMainPanel.DeleteTopicUsingName(itsTopicLabel.Text))
+            {                
                 return;
             }
-
-            // If we get here, there was an error so tell the user.
-            MessageBox.Show(itsMainPanel.MainForm.WorkWatcherData.ErrorMessage, "Error deleting topic", 
-                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-
         }
 
         #endregion
