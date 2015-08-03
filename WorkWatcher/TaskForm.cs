@@ -39,6 +39,7 @@ namespace WorkWatcher
             itsButtonAddTask.Visible = true;
             this.Text = "Add new task";
             this.AcceptButton = itsButtonAddTask;
+            this.KeyPreview = true;
         }
 
         #endregion
@@ -64,6 +65,20 @@ namespace WorkWatcher
             {
                 Close();
                 return;
+            }
+        }
+
+        /// <summary>
+        /// If the user presses Esc, close the form.  
+        /// NB: Had to set KeyPreview = true in the constructors for the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TaskForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
             }
         }
 

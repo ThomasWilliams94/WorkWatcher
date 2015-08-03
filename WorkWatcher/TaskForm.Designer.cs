@@ -160,6 +160,7 @@
             this.MinimizeBox = false;
             this.Name = "TaskForm";
             this.Text = "TaskForm";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TaskForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.itsNumericUpDownNumHours)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
