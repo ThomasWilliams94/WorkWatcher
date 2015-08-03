@@ -211,7 +211,28 @@ namespace WorkWatcher
         /// </returns>
         public bool AddNewTask(string title, double timeSpent, Topic topic, DateTime dateTime)
         {
-            // No obvious restrictions on tasks
+            // Confirm the title is not the empty string
+            if (title == "")
+            {
+                itsErrorMessage = "Please enter a title for the task.";
+                return false;
+            }
+
+            // Confirm that at least some time has been spent on the task
+            if (timeSpent == 0)
+            {
+                itsErrorMessage = "Please enter the amount of time spent.";
+                return false;
+            }
+
+            // Double check that a topic has been selected.
+            if (topic == null)
+            {
+                itsErrorMessage = "Please select a topic.";
+                return false;
+            }
+            
+            // Add the task
             Task newTask = new Task(title, timeSpent, topic, dateTime);
             itsTasks.Add(newTask);
 
