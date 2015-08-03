@@ -49,6 +49,9 @@ namespace WorkWatcher
 
         #region Topic-related methods
 
+        /// <summary>
+        /// Opens a new TopicForm for specifying input for a new topic
+        /// </summary>
         internal void OnAddNewTopic()
         {
             TopicForm newTopicForm = new TopicForm(this);
@@ -147,12 +150,26 @@ namespace WorkWatcher
 
         #region Task-related methods
 
+        /// <summary>
+        /// Opens a new TaskForm for specifying input for a new task
+        /// </summary>
         internal void OnAddNewTask()
         {
             TaskForm newTaskForm = new TaskForm(this);
             newTaskForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Adds a new task and updates the GUI (not yet implemented)
+        /// </summary>
+        /// <param name="title">The title of the new task</param>
+        /// <param name="timeSpent">The time spent on the new task</param>
+        /// <param name="topic">The topic for which the task was completed</param>
+        /// <param name="dateTime">The date on which the task was completed</param>
+        /// <returns>
+        /// True if the task was successfully added.
+        /// False otherwise.
+        /// </returns>
         internal bool AddNewTask(string title, double timeSpent, Topic topic, DateTime dateTime)
         {
             // Attempt to add the new task
