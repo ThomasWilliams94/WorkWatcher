@@ -53,6 +53,24 @@ namespace WorkWatcher
             ItsGroupBoxTopicsAddNewLabel_Click(this, e);
         }
 
+        internal bool AddNewTopic(string name, Color colour, string description)
+        {
+            // Attempt to add the new topic
+            if(!itsMainForm.WorkWatcherData.AddNewTopic(name, colour, description))
+            {
+                // If we get here, something was wrong with the input so display a message box 
+                // with the error in WorkWatcherData so user knows what to correct.                
+                MessageBox.Show(itsMainForm.WorkWatcherData.ErrorMessage, "Invalid input", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                return false;
+            }
+
+            // Successfully added so update group box
+            UpdateTopicsGroupBoxPanel();
+
+            return true;
+        }
+
         /// <summary>
         /// Updates the panel on which Topic names and descriptions appear
         /// when they have been added.
@@ -81,12 +99,13 @@ namespace WorkWatcher
             }
         }
 
+        
+
         #endregion
 
         #region Private Methods
 
         
-
         #endregion
 
         /// <summary>
@@ -100,8 +119,6 @@ namespace WorkWatcher
         {
             TopicForm newTopicForm = new TopicForm(this);
             newTopicForm.ShowDialog();
-
-            UpdateTopicsGroupBoxPanel();
         }
 
 

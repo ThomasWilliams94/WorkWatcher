@@ -73,17 +73,14 @@ namespace WorkWatcher
 
         private void ItsButtonAddTopic_Click(object sender, EventArgs e)
         {
-            // Try to add the new topic. If successful, close the form and return.
-            if (itsMainPanel.MainForm.WorkWatcherData.AddNewTopic(itsTextBoxName.Text.Trim(), itsMainPanel.MainForm.Colours[itsMainPanel.MainForm.WorkWatcherData.Topics.Count % itsMainPanel.MainForm.Colours.Count], itsTextBoxDescription.Text.Trim()))
+            // Try to add the new topic. If successful, close the form and return
+            // otherwise, don't do anything.
+            if (itsMainPanel.AddNewTopic(itsTextBoxName.Text.Trim(), itsMainPanel.MainForm.Colours[itsMainPanel.MainForm.WorkWatcherData.Topics.Count % itsMainPanel.MainForm.Colours.Count], itsTextBoxDescription.Text.Trim()))
             {                
                 Close();
                 return;
             }
 
-            // If we get here, something was wrong with the input so display a message box 
-            // with the error in WorkWatcherData so user knows what to correct.
-            itsMessage = itsMainPanel.MainForm.WorkWatcherData.ErrorMessage;
-            MessageBox.Show(itsMessage, "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         }
 
         private void ItsButtonEditTopic_Click(object sender, EventArgs e)
