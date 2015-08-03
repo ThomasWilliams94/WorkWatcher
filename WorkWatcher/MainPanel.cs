@@ -53,6 +53,16 @@ namespace WorkWatcher
             ItsGroupBoxTopicsAddNewLabel_Click(this, e);
         }
 
+        /// <summary>
+        /// Adds a new topic and updates the topics group box
+        /// </summary>
+        /// <param name="name">The name of the new topic.</param>
+        /// <param name="colour">The colour of the new topic.</param>
+        /// <param name="description">The description of the new topic.</param>
+        /// <returns>
+        /// True if the topic is successfully added.
+        /// False otherwise.
+        /// </returns>
         internal bool AddNewTopic(string name, Color colour, string description)
         {
             // Attempt to add the new topic
@@ -71,6 +81,17 @@ namespace WorkWatcher
             return true;
         }
 
+        /// <summary>
+        /// Updates a topic with new values and then updates the topics group box
+        /// </summary>
+        /// <param name="topicToUpdate">The topic to update</param>
+        /// <param name="newName">The new name for the topic</param>
+        /// <param name="newColour">The new colour for the topic</param>
+        /// <param name="newDescription">The new description for the topic</param>
+        /// <returns>
+        /// True if the topic is successfully updated.
+        /// False otherwise.
+        /// </returns>
         internal bool UpdateTopic(Topic topicToUpdate, string newName, Color newColour, string newDescription)
         {
             // Attempt to update name
@@ -96,6 +117,14 @@ namespace WorkWatcher
 
         }
 
+        /// <summary>
+        /// Deletes a topic using its name and updates the topics group box
+        /// </summary>
+        /// <param name="topicName">The name of the topic to be deleted</param>
+        /// <returns>
+        /// True if the topic was successfully deleted. 
+        /// False otherwise.
+        /// </returns>
         internal bool DeleteTopicUsingName(string topicName)
         {
             // Attempt to delete topic
