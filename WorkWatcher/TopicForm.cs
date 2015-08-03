@@ -46,6 +46,7 @@ namespace WorkWatcher
             // We show the add topic button only and update the text
             itsButtonAddTopic.Visible = true;
             this.Text = "Add new topic";
+            this.AcceptButton = itsButtonAddTopic;
         }
 
         /// <summary>
@@ -67,6 +68,7 @@ namespace WorkWatcher
             // We show the edit topic button only
             itsButtonEditTopic.Visible = true;
             this.Text = "Edit topic";
+            this.AcceptButton = itsButtonEditTopic;
         }
 
         #endregion
