@@ -198,12 +198,107 @@ namespace WorkWatcher
         #endregion
 
         #region Task-related methods
-
+        
+        /// <summary>
+        /// Add a new task to itsTasks
+        /// </summary>
+        /// <param name="title">Title of the new task.</param>
+        /// <param name="timeSpent">Time spent for the new task.</param>
+        /// <param name="topic">Topic for which this task was completed.</param>
+        /// <param name="dateTime">The date on which the task was carried out.</param>
+        /// <returns>
+        /// True...
+        /// </returns>
         public bool AddNewTask(string title, double timeSpent, Topic topic, DateTime dateTime)
         {
             // No obvious restrictions on tasks
             Task newTask = new Task(title, timeSpent, topic, dateTime);
             itsTasks.Add(newTask);
+
+            return true;
+        }
+
+        /// <summary>
+        /// Deletes the task with the specified title
+        /// </summary>
+        /// <param name="title">The title of the task to be deleted.</param>
+        /// <returns>
+        /// True if the task was successfully deleted.
+        /// False if the task was not found.
+        /// </returns>
+        public bool DeleteTaskUsingTitle(string title) 
+        {
+            // Look for the topic with the specified name and delete it
+            foreach (Task task in itsTasks)
+            {
+                if (task.Title == title)
+                {
+                    itsTasks.Remove(task);
+                    return true;
+                }
+            }
+
+            // If we get out here, the topic name was not found so something went wrong
+            itsErrorMessage = "Could not find task: '" + title + "'.";
+            return false;
+        }
+
+        /// <summary>
+        /// Given a task, updates its title
+        /// </summary>
+        /// <param name="taskToUpdate">The task to update</param>
+        /// <param name="newTitle">The new title for the task</param>
+        /// <returns>
+        /// True... 
+        /// </returns>
+        public bool UpdateTaskTitle(Task taskToUpdate, string newTitle)
+        {
+            itsTasks[itsTasks.IndexOf(taskToUpdate)].Title = newTitle;
+
+            return true;
+        }
+
+        /// <summary>
+        /// Given a task, updates its time spent
+        /// </summary>
+        /// <param name="taskToUpdate">The task to update</param>
+        /// <param name="newTitle">The new time spent for the task</param>
+        /// <returns>
+        /// True... 
+        /// </returns>
+        public bool UpdateTaskTimeSpent(Task taskToUpdate, double newTimeSpent)
+        {
+            itsTasks[itsTasks.IndexOf(taskToUpdate)].TimeSpent = newTimeSpent;
+
+            return true;
+        }
+
+        /// <summary>
+        /// Given a task, updates its topic
+        /// </summary>
+        /// <param name="taskToUpdate">The task to update</param>
+        /// <param name="newTitle">The new topic for the task</param>
+        /// <returns>
+        /// True... 
+        /// </returns>
+        public bool UpdateTaskTopic(Task taskToUpdate, Topic newTopic)
+        {
+            itsTasks[itsTasks.IndexOf(taskToUpdate)].Topic = newTopic;
+
+            return true;
+        }
+
+        /// <summary>
+        /// Given a task, updates its datetime
+        /// </summary>
+        /// <param name="taskToUpdate">The task to update</param>
+        /// <param name="newTitle">The new datetime for the task</param>
+        /// <returns>
+        /// True... 
+        /// </returns>
+        public bool UpdateTaskDateTime(Task taskToUpdate, DateTime newDateTime)
+        {
+            itsTasks[itsTasks.IndexOf(taskToUpdate)].DateTime = newDateTime;
 
             return true;
         }
