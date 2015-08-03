@@ -18,7 +18,7 @@ namespace WorkWatcher
         /// <summary>
         /// The number of hours spent doing this task
         /// </summary>
-        private double itsNumHours;
+        private double itsTimeSpent;
 
         /// <summary>
         /// The topic for which this task was completed 
@@ -38,13 +38,13 @@ namespace WorkWatcher
         /// Constructor for the Task class
         /// </summary>
         /// <param name="title">The title of the task.</param>
-        /// <param name="numHours">The number of hours spent doing this task.</param>
+        /// <param name="timeSpent">The number of hours spent doing this task.</param>
         /// <param name="topic">The topic for which this task was completed.</param>
         /// <param name="dateTime">The day/time this task was completed</param>
-        public Task(string title, double numHours, Topic topic, DateTime dateTime)
+        public Task(string title, double timeSpent, Topic topic, DateTime dateTime)
         {
             itsTitle = title;
-            itsNumHours = numHours;
+            itsTimeSpent = timeSpent;
             itsTopic = topic;
             itsDateTime = dateTime;
         }
@@ -52,6 +52,54 @@ namespace WorkWatcher
         #endregion
 
         #region Properties
+
+        public string Title
+        {
+            get
+            {
+                return itsTitle;
+            }
+            set
+            {
+                itsTitle = value;
+            }
+        }
+
+        public double TimeSpent
+        {
+            get
+            {
+                return itsTimeSpent;
+            }
+            set
+            {
+                itsTimeSpent = value;
+            }
+        }
+
+        public Topic Topic
+        {
+            get
+            {
+                return itsTopic;
+            }
+            set
+            {
+                itsTopic = value;
+            }
+        }
+
+        public DateTime DateTime
+        {
+            get
+            {
+                return itsDateTime;
+            }
+            set
+            {
+                itsDateTime = value;
+            }
+        }
 
         #endregion
     }
