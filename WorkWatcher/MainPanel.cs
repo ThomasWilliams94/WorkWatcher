@@ -47,10 +47,12 @@ namespace WorkWatcher
 
         #region Internal Methods
 
+        #region Topic-related methods
+
         internal void OnAddNewTopic()
         {
-            EventArgs e = new EventArgs();
-            ItsGroupBoxTopicsAddNewLabel_Click(this, e);
+            TopicForm newTopicForm = new TopicForm(this);
+            newTopicForm.ShowDialog();
         }
 
         /// <summary>
@@ -141,6 +143,8 @@ namespace WorkWatcher
             return true;
         }
 
+        #endregion
+
         /// <summary>
         /// Updates the panel on which Topic names and descriptions appear
         /// when they have been added.
@@ -187,8 +191,7 @@ namespace WorkWatcher
         /// <param name="e"></param>
         private void ItsGroupBoxTopicsAddNewLabel_Click(object sender, EventArgs e)
         {
-            TopicForm newTopicForm = new TopicForm(this);
-            newTopicForm.ShowDialog();
+            OnAddNewTopic();
         }
 
 
