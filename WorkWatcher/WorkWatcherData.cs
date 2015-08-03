@@ -120,6 +120,13 @@ namespace WorkWatcher
         /// </returns>
         public bool UpdateTopicName(Topic oldTopic, string newName)
         {
+            // If the name has changed, that's okay.
+            if (oldTopic.Name == newName)
+            {
+                // Nothing to do, so return true
+                return true; 
+            }
+
             if (VerifyNewTopicName(newName))
             {
                 itsTopics[itsTopics.IndexOf(oldTopic)].Name = newName;
@@ -143,6 +150,7 @@ namespace WorkWatcher
             
             return true;
         }
+
         /// <summary>
         /// Checks the a potential new name for a topic is valid, i.e.
         /// it cannot already exist or be the empty string

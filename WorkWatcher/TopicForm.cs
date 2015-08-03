@@ -93,32 +93,27 @@ namespace WorkWatcher
                 return;
             }
 
-            // Has the name changed?
-            if (itsTextBoxName.Text.Trim() != itsExistingTopic.Name)
-            {
-                // If the update failed, display a message box
-                if (!itsMainPanel.MainForm.WorkWatcherData.UpdateTopicName(itsExistingTopic, itsTextBoxName.Text.Trim()))
-                {
-                    itsMessage = itsMainPanel.MainForm.WorkWatcherData.ErrorMessage;
-                    MessageBox.Show(itsMessage, "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                    return;
-                }
-            }            
+            string newName;
+            Color newColour;
+            string newDescription;
 
-            // Has the description changed?
-            if (itsTextBoxDescription.Text.Trim() != itsExistingTopic.Description)
-            {
-                // If the update fails, display a message box
-                if (!itsMainPanel.MainForm.WorkWatcherData.UpdateTopicDescription(itsExistingTopic, itsTextBoxDescription.Text.Trim()))
-                {
-                    itsMessage = itsMainPanel.MainForm.WorkWatcherData.ErrorMessage;
-                    MessageBox.Show(itsMessage, "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                    return;
-                }
-            }
+            // Use existing name if they are the same
+            newName = (itsTextBoxName.Text.Trim() != itsExistingTopic.Name) 
+                ? itsTextBoxName.Text.Trim() : itsExistingTopic.Name;
 
-            Close();
-            return;
+            newColour = Color.Black; // not allowing colour changes yet so just choose black
+
+            // Use existing colour if they are the same
+            newDescription = (itsTextBoxDescription.Text.Trim() != itsExistingTopic.Description) 
+                ? itsTextBoxDescription.Text.Trim() : itsExistingTopic.Description;
+
+            // Try to update the topic. If successful, close the form and return
+            // otherwise, don't do anything.
+            if (itsMainPanel.UpdateTopic(itsExistingTopic, newName, newColour, newDescription))
+            {
+                Close();
+                return;
+            }                  
         }
     }
 }

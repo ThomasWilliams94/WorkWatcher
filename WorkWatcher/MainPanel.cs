@@ -71,6 +71,30 @@ namespace WorkWatcher
             return true;
         }
 
+        internal bool UpdateTopic(Topic topicToUpdate, string newName, Color newColour, string newDescription)
+        {
+            // Attempt to update name
+            if (!itsMainForm.WorkWatcherData.UpdateTopicName(topicToUpdate, newName))
+            {
+                MessageBox.Show(itsMainForm.WorkWatcherData.ErrorMessage, "Invalid input", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                return false;
+            }
+
+            // Attempt to update description
+            if (!itsMainForm.WorkWatcherData.UpdateTopicDescription(topicToUpdate, newDescription))
+            {
+                MessageBox.Show(itsMainForm.WorkWatcherData.ErrorMessage, "Invalid input", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                return false;
+            }
+
+            // Successfully updated so update group box
+            UpdateTopicsGroupBoxPanel();
+
+            return true;
+
+        }
         /// <summary>
         /// Updates the panel on which Topic names and descriptions appear
         /// when they have been added.

@@ -80,10 +80,6 @@ namespace WorkWatcher
                     // this is an edit not an add.
                     TopicForm newTopicForm = new TopicForm(itsMainPanel, topic);
                     newTopicForm.ShowDialog();
-
-                    // Update the Topics Group box when we're done.
-                    itsMainPanel.UpdateTopicsGroupBoxPanel();
-                    return;
                 }
             }
         }
