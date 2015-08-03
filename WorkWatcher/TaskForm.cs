@@ -55,5 +55,17 @@ namespace WorkWatcher
         }
 
         #endregion
+
+        private void ItsButtonAddTask_Click(object sender, EventArgs e)
+        {
+            // Try to add the new task. If successful, close the form and return
+            // otherwise, don't do anything.
+            if (itsMainPanel.AddNewTask(itsTextBoxTitle.Text.Trim(), (double) itsNumericUpDownNumHours.Value, (Topic) itsComboBoxTopic.SelectedValue, itsDateTimePicker.Value.Date) )
+            {
+                Close();
+                return;
+            }
+        }
+
     }
 }

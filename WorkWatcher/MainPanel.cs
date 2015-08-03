@@ -145,6 +145,35 @@ namespace WorkWatcher
 
         #endregion
 
+        #region Task-related methods
+
+        internal void OnAddNewTask()
+        {
+            TaskForm newTaskForm = new TaskForm(this);
+            newTaskForm.ShowDialog();
+        }
+
+        internal bool AddNewTask(string title, double timeSpent, Topic topic, DateTime dateTime)
+        {
+            // Attempt to add the new task
+            if (!itsMainForm.WorkWatcherData.AddNewTask(title, timeSpent, topic, dateTime))
+            {
+                // If we get here, something was wrong with the input so display a message box 
+                // with the error in WorkWatcherData so user knows what to correct.                
+                MessageBox.Show(itsMainForm.WorkWatcherData.ErrorMessage, "Invalid input",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                return false;
+            }
+
+            //===============
+            // Actions to carry out when rendering Tasks on the GUI here
+            //===============
+
+            return true;
+        }
+
+        #endregion
+
         /// <summary>
         /// Updates the panel on which Topic names and descriptions appear
         /// when they have been added.

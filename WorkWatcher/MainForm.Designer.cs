@@ -36,6 +36,7 @@
             this.itsEditMenuItemNewTopic = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuItemView = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.itsEditMenuItemNewTask = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +79,8 @@
             // itsMenuItemEdit
             // 
             this.itsMenuItemEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.itsEditMenuItemNewTopic});
+            this.itsEditMenuItemNewTopic,
+            this.itsEditMenuItemNewTask});
             this.itsMenuItemEdit.Name = "itsMenuItemEdit";
             this.itsMenuItemEdit.Size = new System.Drawing.Size(39, 20);
             this.itsMenuItemEdit.Text = "Edit";
@@ -101,6 +103,13 @@
             this.itsMenuItemHelp.Name = "itsMenuItemHelp";
             this.itsMenuItemHelp.Size = new System.Drawing.Size(44, 20);
             this.itsMenuItemHelp.Text = "Help";
+            // 
+            // itsEditMenuItemNewTask
+            // 
+            this.itsEditMenuItemNewTask.Name = "itsEditMenuItemNewTask";
+            this.itsEditMenuItemNewTask.Size = new System.Drawing.Size(165, 22);
+            this.itsEditMenuItemNewTask.Text = "Add New Task...";
+            this.itsEditMenuItemNewTask.Click += new System.EventHandler(this.ItsEditMenuItemNewTask_Click);
             // 
             // MainForm
             // 
@@ -130,6 +139,7 @@
         private System.Windows.Forms.ToolStripMenuItem itsMenuItemView;
         private System.Windows.Forms.ToolStripMenuItem itsMenuItemHelp;
         private System.Windows.Forms.ToolStripMenuItem itsEditMenuItemNewTopic;
+        private System.Windows.Forms.ToolStripMenuItem itsEditMenuItemNewTask;
     }
 }
 

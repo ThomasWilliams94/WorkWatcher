@@ -111,8 +111,12 @@ namespace WorkWatcher
 
         private void ItsEditMenuItemNewTopic_Click(object sender, EventArgs e)
         {
-            // Fire the Click event in MainPanel that adds a new topic
             itsMainPanel.OnAddNewTopic();
+        }
+
+        private void ItsEditMenuItemNewTask_Click(object sender, EventArgs e)
+        {
+            itsMainPanel.OnAddNewTask();
         }
 
 

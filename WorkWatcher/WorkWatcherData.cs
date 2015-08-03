@@ -20,6 +20,11 @@ namespace WorkWatcher
         private List<Topic> itsTopics = new List<Topic>();
 
         /// <summary>
+        /// A list of all the tasks that are defined in the application
+        /// </summary>
+        private List<Task> itsTasks = new List<Task>();
+
+        /// <summary>
         /// A string to contain the error message when an action goes wrong
         /// </summary>
         private string itsErrorMessage = "";
@@ -45,6 +50,14 @@ namespace WorkWatcher
             }
         }
 
+        public List<Task> Tasks
+        {
+            get
+            {
+                return itsTasks;
+            }
+        }
+
         public string ErrorMessage
         {
             get
@@ -56,6 +69,8 @@ namespace WorkWatcher
         #endregion
 
         #region Public Methods
+
+        #region Topic-related methods
 
         /// <summary>
         /// Add a new topic to itsTopics. 
@@ -82,8 +97,7 @@ namespace WorkWatcher
 
             return true;
         }
-
-
+        
         /// <summary>
         /// Deletes the topic with the specified name
         /// </summary>
@@ -180,6 +194,21 @@ namespace WorkWatcher
 
             return true;
         }
+
+        #endregion
+
+        #region Task-related methods
+
+        public bool AddNewTask(string title, double timeSpent, Topic topic, DateTime dateTime)
+        {
+            // No obvious restrictions on tasks
+            Task newTask = new Task(title, timeSpent, topic, dateTime);
+            itsTasks.Add(newTask);
+
+            return true;
+        }
+
+        #endregion
 
         #endregion
     }
