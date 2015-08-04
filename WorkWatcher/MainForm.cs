@@ -166,6 +166,18 @@ namespace WorkWatcher
             this.Text = itsTextPrefix + itsFileName;
         }
 
+        private void OpenFile()
+        {
+            itsWorkWatcherData = new WorkWatcherData();
+
+            itsWorkWatcherData.LoadFromXML(itsFileName);
+
+            // Update the text to display the new file name
+            this.Text = itsTextPrefix + itsFileName;
+
+            itsMainPanel.UpdateEntireGUI();
+        }
+
         #endregion
 
         #region Events
@@ -213,6 +225,22 @@ namespace WorkWatcher
 
                 SaveFile();
             }
+        }
+
+        private void ItsFileMenuItemOpen_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDlg = new OpenFileDialog();
+
+            openFileDlg.Filter = "Work Watcher Files (*.wwf)|*.wwf|All files (*.*)|*.*";
+            openFileDlg.FilterIndex = 1;
+
+            if (openFileDlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                itsFileName = openFileDlg.FileName;
+
+                OpenFile();
+            }
+            
         }
     }
 }

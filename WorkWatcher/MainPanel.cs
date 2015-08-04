@@ -191,6 +191,11 @@ namespace WorkWatcher
 
         #endregion
 
+        internal void UpdateEntireGUI()
+        {
+            UpdateTopicsGroupBoxPanel();
+        }
+
         /// <summary>
         /// Updates the panel on which Topic names and descriptions appear
         /// when they have been added.

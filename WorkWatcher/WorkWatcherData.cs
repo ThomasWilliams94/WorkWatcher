@@ -387,6 +387,139 @@ namespace WorkWatcher
             }
         }
 
+        internal void LoadFromXML(string inputFileName)
+        {
+            try
+            {
+                using (FileStream stream = new FileStream(inputFileName, FileMode.Open, FileAccess.Read))
+                {
+                    XmlReaderSettings settings = new XmlReaderSettings();
+                    settings.IgnoreWhitespace = true;
+
+                    XmlReader reader = XmlReader.Create(stream, settings);
+                    XmlDocument xDoc = new XmlDocument();
+                    xDoc.Load(reader);
+
+                    //==================================================
+                    //   Topics
+                    //------------
+                    {
+                        XmlNodeList topicList = xDoc.GetElementsByTagName("Topics");
+
+                        foreach (XmlNode node in topicList)
+                        {
+
+                            foreach (XmlElement child in node.ChildNodes)
+                            {
+                                Topic newTopic = new Topic(null, System.Drawing.Color.Black, null); // dummy topic for now
+
+                                foreach (XmlAttribute att in child.Attributes)
+                                {
+                                    string attName = att.Name;
+                                    string attVal = att.Value;
+
+                                    switch (attName)
+                                    {
+                                        case "name":
+                                            newTopic.Name = attVal;
+                                            break;
+                                        case "colour":
+                                            newTopic.Colour = System.Drawing.Color.FromArgb(int.Parse(attVal));
+                                            break;
+                                        case "description":
+                                            newTopic.Description = attVal;
+                                            break;
+                                        default:
+                                            MessageBox.Show("Unknown attribute found for topic: " + attName + " - " + attVal,
+                                                "Error parsing file", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                                            break;
+                                    }
+                                }
+
+                                itsTopics.Add(newTopic);
+                            }
+                        }
+                    }
+                    //--------------
+                    // End topics
+                    //==================================================
+
+
+                    //==================================================
+                    //   Tasks
+                    //------------
+                    {
+                        XmlNodeList taskList = xDoc.GetElementsByTagName("Tasks");
+
+                        foreach (XmlNode node in taskList)
+                        {
+
+                            foreach (XmlElement child in node.ChildNodes)
+                            {
+                                Topic tasksTopic = new Topic(null, System.Drawing.Color.Black, null);
+                                DateTime dummyDate = new DateTime();
+
+                                Task newTask = new Task(null, -1, tasksTopic, dummyDate); // dummy topic for now
+
+                                foreach (XmlAttribute att in child.Attributes)
+                                {
+                                    string attName = att.Name;
+                                    string attVal = att.Value;
+
+                                    switch (attName)
+                                    {
+                                        case "title":
+                                            newTask.Title = attVal;
+                                            break;
+                                        case "timeSpent":
+                                            newTask.TimeSpent = double.Parse(attVal);
+                                            break;
+                                        case "topicName":
+                                            int index = -1;
+                                            foreach (Topic topic in itsTopics)
+                                            {
+                                                if (topic.Name == attVal)
+                                                {
+                                                    index = itsTopics.IndexOf(topic);
+                                                }
+                                            }
+                                            newTask.Topic = itsTopics[index];
+                                            break;
+                                        case "dateTime":
+                                            newTask.DateTime = DateTime.Parse(attVal);
+                                            break;
+                                        default:
+                                            MessageBox.Show("Unknown attribute found for task: " + attName + " - " + attVal,
+                                                "Error parsing file", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                                            break;
+                                    }
+                                }
+
+                                itsTasks.Add(newTask);
+                            }
+                        }
+                    }
+                    //--------------
+                    // End topics
+                    //==================================================
+                    
+                    //DELETE ME WHEN TASKS ARE RENDERED IN GUI
+                    string displayString = "";
+                    foreach (Task task in itsTasks)
+                    {
+                        displayString += task.Title + "," + task.TimeSpent.ToString() + "," + task.Topic.Name + "," + task.DateTime + "\n";
+                    }
+                    MessageBox.Show(displayString);
+                    reader.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error when reading file: " + inputFileName + "\n\n" + e.Message, "Error when reading file",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+        }
+
         #endregion
     }
 }

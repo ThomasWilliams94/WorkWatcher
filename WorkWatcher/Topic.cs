@@ -74,6 +74,10 @@ namespace WorkWatcher
             {
                 return itsColour;
             }
+            set
+            {
+                itsColour = value;
+            }
         }
 
         #endregion
