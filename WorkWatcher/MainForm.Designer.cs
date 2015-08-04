@@ -31,12 +31,15 @@
             this.itsStatusStrip = new System.Windows.Forms.StatusStrip();
             this.itsMenuStrip = new System.Windows.Forms.MenuStrip();
             this.itsMenuItemFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.itsFileMenuItemSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.itsFileMenuItemSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.itsFileMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuItemEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.itsEditMenuItemNewTopic = new System.Windows.Forms.ToolStripMenuItem();
+            this.itsEditMenuItemNewTask = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuItemView = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.itsEditMenuItemNewTask = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,15 +67,37 @@
             // itsMenuItemFile
             // 
             this.itsMenuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itsFileMenuItemSave,
+            this.itsFileMenuItemSaveAs,
+            this.toolStripSeparator1,
             this.itsFileMenuItemExit});
             this.itsMenuItemFile.Name = "itsMenuItemFile";
             this.itsMenuItemFile.Size = new System.Drawing.Size(37, 20);
             this.itsMenuItemFile.Text = "File";
             // 
+            // itsFileMenuItemSave
+            // 
+            this.itsFileMenuItemSave.Name = "itsFileMenuItemSave";
+            this.itsFileMenuItemSave.Size = new System.Drawing.Size(152, 22);
+            this.itsFileMenuItemSave.Text = "Save";
+            this.itsFileMenuItemSave.Click += new System.EventHandler(this.ItsFileMenuItemSave_Click);
+            // 
+            // itsFileMenuItemSaveAs
+            // 
+            this.itsFileMenuItemSaveAs.Name = "itsFileMenuItemSaveAs";
+            this.itsFileMenuItemSaveAs.Size = new System.Drawing.Size(152, 22);
+            this.itsFileMenuItemSaveAs.Text = "Save as...";
+            this.itsFileMenuItemSaveAs.Click += new System.EventHandler(this.ItsFileMenuItemSaveAs_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
             // itsFileMenuItemExit
             // 
             this.itsFileMenuItemExit.Name = "itsFileMenuItemExit";
-            this.itsFileMenuItemExit.Size = new System.Drawing.Size(92, 22);
+            this.itsFileMenuItemExit.Size = new System.Drawing.Size(152, 22);
             this.itsFileMenuItemExit.Text = "Exit";
             this.itsFileMenuItemExit.Click += new System.EventHandler(this.ItsFileMenuItemExit_Click);
             // 
@@ -92,6 +117,13 @@
             this.itsEditMenuItemNewTopic.Text = "Add New Topic...";
             this.itsEditMenuItemNewTopic.Click += new System.EventHandler(this.ItsEditMenuItemNewTopic_Click);
             // 
+            // itsEditMenuItemNewTask
+            // 
+            this.itsEditMenuItemNewTask.Name = "itsEditMenuItemNewTask";
+            this.itsEditMenuItemNewTask.Size = new System.Drawing.Size(165, 22);
+            this.itsEditMenuItemNewTask.Text = "Add New Task...";
+            this.itsEditMenuItemNewTask.Click += new System.EventHandler(this.ItsEditMenuItemNewTask_Click);
+            // 
             // itsMenuItemView
             // 
             this.itsMenuItemView.Name = "itsMenuItemView";
@@ -103,13 +135,6 @@
             this.itsMenuItemHelp.Name = "itsMenuItemHelp";
             this.itsMenuItemHelp.Size = new System.Drawing.Size(44, 20);
             this.itsMenuItemHelp.Text = "Help";
-            // 
-            // itsEditMenuItemNewTask
-            // 
-            this.itsEditMenuItemNewTask.Name = "itsEditMenuItemNewTask";
-            this.itsEditMenuItemNewTask.Size = new System.Drawing.Size(165, 22);
-            this.itsEditMenuItemNewTask.Text = "Add New Task...";
-            this.itsEditMenuItemNewTask.Click += new System.EventHandler(this.ItsEditMenuItemNewTask_Click);
             // 
             // MainForm
             // 
@@ -140,6 +165,9 @@
         private System.Windows.Forms.ToolStripMenuItem itsMenuItemHelp;
         private System.Windows.Forms.ToolStripMenuItem itsEditMenuItemNewTopic;
         private System.Windows.Forms.ToolStripMenuItem itsEditMenuItemNewTask;
+        private System.Windows.Forms.ToolStripMenuItem itsFileMenuItemSave;
+        private System.Windows.Forms.ToolStripMenuItem itsFileMenuItemSaveAs;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

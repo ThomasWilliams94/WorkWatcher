@@ -155,6 +155,17 @@ namespace WorkWatcher
 
         }
 
+        /// <summary>
+        /// Saves the file by calling WriteToXML in WorkWatcherData
+        /// </summary>
+        private void SaveFile()
+        {
+            WorkWatcherData.WriteToXML(itsFileName);
+
+            // Update the text to display the new file name
+            this.Text = itsTextPrefix + itsFileName;
+        }
+
         #endregion
 
         #region Events
@@ -176,6 +187,32 @@ namespace WorkWatcher
             itsMainPanel.OnAddNewTask();
         }
 
+        private void ItsFileMenuItemSave_Click(object sender, EventArgs e)
+        {
+            // If file name is 'untitled.wwf' (we set this on start up) 
+            // need to do a 'save as'
+            if (itsFileName == "untitled.wwf")
+            {
+                ItsFileMenuItemSaveAs_Click(sender, e);
+                return;
+            }
 
+            SaveFile();
+        }
+
+        private void ItsFileMenuItemSaveAs_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDlg = new SaveFileDialog();
+
+            saveFileDlg.Filter = "Work Watcher Files (*.wwf)|*.wwf|All files (*.*)|*.*";
+            saveFileDlg.FilterIndex = 1;
+
+            if (saveFileDlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                itsFileName = saveFileDlg.FileName;
+
+                SaveFile();
+            }
+        }
     }
 }
