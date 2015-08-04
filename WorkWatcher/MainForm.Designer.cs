@@ -40,6 +40,10 @@
             this.itsEditMenuItemNewTask = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuItemView = new System.Windows.Forms.ToolStripMenuItem();
             this.itsMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.itsFileMenuItemNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.itsFileMenuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.itsMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +71,10 @@
             // itsMenuItemFile
             // 
             this.itsMenuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itsFileMenuItemNew,
+            this.toolStripSeparator2,
+            this.itsFileMenuItemOpen,
+            this.toolStripSeparator3,
             this.itsFileMenuItemSave,
             this.itsFileMenuItemSaveAs,
             this.toolStripSeparator1,
@@ -136,6 +144,29 @@
             this.itsMenuItemHelp.Size = new System.Drawing.Size(44, 20);
             this.itsMenuItemHelp.Text = "Help";
             // 
+            // itsFileMenuItemNew
+            // 
+            this.itsFileMenuItemNew.Name = "itsFileMenuItemNew";
+            this.itsFileMenuItemNew.Size = new System.Drawing.Size(152, 22);
+            this.itsFileMenuItemNew.Text = "New";
+            // 
+            // itsFileMenuItemOpen
+            // 
+            this.itsFileMenuItemOpen.Name = "itsFileMenuItemOpen";
+            this.itsFileMenuItemOpen.Size = new System.Drawing.Size(152, 22);
+            this.itsFileMenuItemOpen.Text = "Open...";
+            this.itsFileMenuItemOpen.Click += new System.EventHandler(this.ItsFileMenuItemOpen_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,6 +199,10 @@
         private System.Windows.Forms.ToolStripMenuItem itsFileMenuItemSave;
         private System.Windows.Forms.ToolStripMenuItem itsFileMenuItemSaveAs;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem itsFileMenuItemNew;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem itsFileMenuItemOpen;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 
