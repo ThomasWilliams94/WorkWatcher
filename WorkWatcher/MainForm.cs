@@ -38,6 +38,22 @@ namespace WorkWatcher
         /// </summary>
         private List<Color> itsColours = new List<Color>();
 
+        /// <summary>
+        /// The file name of the current file (i.e. the path)
+        /// </summary>
+        private string itsFileName = null;
+
+        /// <summary>
+        /// Bool to highlight if the file needs to be saved or not
+        /// </summary>
+        private bool itsNeedsSaving = false;
+
+        /// <summary>
+        /// The part of the text (displayed in form bar) that comes
+        /// before the file name
+        /// </summary>
+        private string itsTextPrefix = "Work Watcher " + Version + " - ";
+
         #endregion
 
         #region Constructor
@@ -50,19 +66,55 @@ namespace WorkWatcher
             // Add colours to the list 
             AddColoursToList();
 
-            // Create the main panel and add it to the main form
-            itsMainPanel = new MainPanel(this);
-            itsMainPanel.Dock = DockStyle.Fill;            
-            this.Controls.Add(itsMainPanel);
-            itsMainPanel.BringToFront(); // This stops the panel from being covered by the tool and status strips
+            // If no arguments given (i.e. a file not opened from outside application)
+            // then create a blank file
+            if (args.Length == 0)
+            {
+                // Create the main panel and add it to the main form
+                itsMainPanel = new MainPanel(this);
+                itsMainPanel.Dock = DockStyle.Fill;
+                this.Controls.Add(itsMainPanel);
+                itsMainPanel.BringToFront(); // This stops the panel from being covered by the tool and status strips
 
-            // Create a WorkWatcherData instance
-            itsWorkWatcherData = new WorkWatcherData();
+                // Create a WorkWatcherData instance
+                itsWorkWatcherData = new WorkWatcherData();
+
+                // Give file name of 'untitled.wwf' 
+                itsFileName = "untitled.wwf";
+                itsNeedsSaving = true;
+            }
+            else
+            {
+                // We will decide what to do later, but will propably involved
+                // calling a LoadOnStartup() method or something along those lines                
+            }
+
+            this.Text = itsTextPrefix + itsFileName;
         }
 
         #endregion
 
         #region Properties
+
+        static string Version
+        {
+            get
+            {
+                return itsVersion;
+            }
+        }
+
+        public bool NeedsSaving
+        {
+            get
+            {
+                return itsNeedsSaving;
+            }
+            set
+            {
+                itsNeedsSaving = value;
+            }
+        }
 
         public List<Color> Colours
         {
