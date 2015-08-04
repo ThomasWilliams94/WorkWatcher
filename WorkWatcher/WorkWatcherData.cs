@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Windows.Forms;
 
 namespace WorkWatcher
 {
@@ -325,6 +328,64 @@ namespace WorkWatcher
         }
 
         #endregion
+
+        /// <summary>
+        /// Writes the data to the specified file location. It overwrites
+        /// existing files.
+        /// </summary>
+        /// <param name="outputFileName">The location to write the data to.</param>
+        public void WriteToXML(string outputFileName)
+        {
+            try
+            {
+                using (FileStream stream = new FileStream(outputFileName, FileMode.Create, FileAccess.Write))
+                {
+                    XmlWriterSettings settings = new XmlWriterSettings();
+                    settings.Indent = true;
+
+                    XmlWriter writer = XmlWriter.Create(stream, settings);
+
+                    writer.WriteStartElement("WorkWatcherData");
+                    {
+                        //===================================================
+                        //   Topics
+                        //
+                        writer.WriteStartElement("Topics");
+                        {
+                            foreach (Topic topic in itsTopics)
+                            {
+                                topic.WriteXML(writer);
+                            }
+                        }
+                        writer.WriteEndElement();
+                        //---------------------------------------------------
+
+
+                        //===================================================
+                        //   Tasks
+                        //
+                        writer.WriteStartElement("Tasks");
+                        {
+                            foreach (Task task in itsTasks)
+                            {
+                                task.WriteXML(writer);
+                            }
+                        }
+                        writer.WriteEndElement();
+                        //---------------------------------------------------
+
+                    }
+                    writer.WriteEndElement();
+
+                    writer.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error when writing to file: " + outputFileName + "\n\n" + e.Message, "Error when writing to file",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+        }
 
         #endregion
     }
