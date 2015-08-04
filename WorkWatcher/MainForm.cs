@@ -15,6 +15,11 @@ namespace WorkWatcher
         #region Members
 
         /// <summary>
+        /// The version number of the software
+        /// </summary>
+        private const string itsVersion = "0.0.0.0";
+
+        /// <summary>
         /// The main panel that the main form will contain
         /// </summary>
         private MainPanel itsMainPanel;
