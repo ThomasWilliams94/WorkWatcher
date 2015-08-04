@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace WorkWatcher
 {
@@ -65,6 +66,29 @@ namespace WorkWatcher
             {
                 itsDescription = value;
             }
+        }
+
+        public System.Drawing.Color Colour
+        {
+            get
+            {
+                return itsColour;
+            }
+        }
+
+        #endregion
+
+        #region Internal Methods
+
+        internal void WriteXML(XmlWriter writer)
+        {
+            writer.WriteStartElement("task");
+            {
+                writer.WriteAttributeString("name", this.Name);
+                writer.WriteAttributeString("colour", this.Colour.ToArgb().ToString());
+                writer.WriteAttributeString("description", this.Description);
+            }
+            writer.WriteEndElement();
         }
 
         #endregion
