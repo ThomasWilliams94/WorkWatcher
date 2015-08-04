@@ -43,7 +43,7 @@ namespace WorkWatcher
         #region Constructor
 
         
-        public MainForm()
+        public MainForm(string[] args)
         {
             InitializeComponent();
 
