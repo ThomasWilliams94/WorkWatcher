@@ -82,7 +82,7 @@ namespace WorkWatcher
 
         internal void WriteXML(XmlWriter writer)
         {
-            writer.WriteStartElement("task");
+            writer.WriteStartElement("topic");
             {
                 writer.WriteAttributeString("name", this.Name);
                 writer.WriteAttributeString("colour", this.Colour.ToArgb().ToString());
