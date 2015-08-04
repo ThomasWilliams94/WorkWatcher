@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace WorkWatcher
 {
@@ -102,5 +103,22 @@ namespace WorkWatcher
         }
 
         #endregion
+
+        #region Internal methods
+
+        internal void WriteXML(XmlWriter writer)
+        {
+            writer.WriteStartElement("task");
+            {
+                writer.WriteAttributeString("title", this.Title);
+                writer.WriteAttributeString("timeSpent", this.TimeSpent.ToString());
+                writer.WriteAttributeString("topicName", this.Topic.Name);
+                writer.WriteAttributeString("dateTime", this.DateTime.ToShortDateString());
+            }
+            writer.WriteEndElement();
+        }
+
+        #endregion
+
     }
 }
