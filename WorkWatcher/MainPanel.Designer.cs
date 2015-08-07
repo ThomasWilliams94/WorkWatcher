@@ -57,7 +57,7 @@
             // 
             this.itsSplitContainerVertical.Panel2.Controls.Add(this.itsSplitContainerHorizontal);
             this.itsSplitContainerVertical.Size = new System.Drawing.Size(877, 586);
-            this.itsSplitContainerVertical.SplitterDistance = 273;
+            this.itsSplitContainerVertical.SplitterDistance = 213;
             this.itsSplitContainerVertical.TabIndex = 0;
             // 
             // itsGroupBoxTopics
@@ -68,7 +68,7 @@
             this.itsGroupBoxTopics.Controls.Add(this.itsGroupBoxTopicsAddNewLabel);
             this.itsGroupBoxTopics.Location = new System.Drawing.Point(3, 3);
             this.itsGroupBoxTopics.Name = "itsGroupBoxTopics";
-            this.itsGroupBoxTopics.Size = new System.Drawing.Size(265, 242);
+            this.itsGroupBoxTopics.Size = new System.Drawing.Size(205, 242);
             this.itsGroupBoxTopics.TabIndex = 0;
             this.itsGroupBoxTopics.TabStop = false;
             this.itsGroupBoxTopics.Text = "Topics";
@@ -81,7 +81,7 @@
             this.itsGroupBoxTopicsPanel.AutoScroll = true;
             this.itsGroupBoxTopicsPanel.Location = new System.Drawing.Point(6, 44);
             this.itsGroupBoxTopicsPanel.Name = "itsGroupBoxTopicsPanel";
-            this.itsGroupBoxTopicsPanel.Size = new System.Drawing.Size(253, 192);
+            this.itsGroupBoxTopicsPanel.Size = new System.Drawing.Size(193, 192);
             this.itsGroupBoxTopicsPanel.TabIndex = 1;
             // 
             // itsGroupBoxTopicsAddNewLabel
@@ -104,8 +104,8 @@
             this.itsSplitContainerHorizontal.Location = new System.Drawing.Point(0, 0);
             this.itsSplitContainerHorizontal.Name = "itsSplitContainerHorizontal";
             this.itsSplitContainerHorizontal.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.itsSplitContainerHorizontal.Size = new System.Drawing.Size(598, 584);
-            this.itsSplitContainerHorizontal.SplitterDistance = 297;
+            this.itsSplitContainerHorizontal.Size = new System.Drawing.Size(658, 584);
+            this.itsSplitContainerHorizontal.SplitterDistance = 357;
             this.itsSplitContainerHorizontal.TabIndex = 0;
             // 
             // MainPanel

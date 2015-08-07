@@ -70,14 +70,14 @@ namespace WorkWatcher
             // then create a blank file
             if (args.Length == 0)
             {
+                // Create a WorkWatcherData instance
+                itsWorkWatcherData = new WorkWatcherData();
+
                 // Create the main panel and add it to the main form
                 itsMainPanel = new MainPanel(this);
                 itsMainPanel.Dock = DockStyle.Fill;
                 this.Controls.Add(itsMainPanel);
                 itsMainPanel.BringToFront(); // This stops the panel from being covered by the tool and status strips
-
-                // Create a WorkWatcherData instance
-                itsWorkWatcherData = new WorkWatcherData();
 
                 // Give file name of 'untitled.wwf' 
                 itsFileName = "untitled.wwf";
@@ -145,13 +145,13 @@ namespace WorkWatcher
         /// </summary>
         private void AddColoursToList()
         {
-            itsColours.Add(Color.Beige);
-            itsColours.Add(Color.White);
-            itsColours.Add(Color.MistyRose);
-            itsColours.Add(Color.GreenYellow);
-            itsColours.Add(Color.PaleVioletRed);
-            itsColours.Add(Color.PowderBlue);
-            itsColours.Add(Color.PeachPuff);
+            itsColours.Add(Color.Red);
+            itsColours.Add(Color.Orange);
+            itsColours.Add(Color.Yellow);
+            itsColours.Add(Color.Green);
+            itsColours.Add(Color.Blue);
+            itsColours.Add(Color.Indigo);
+            itsColours.Add(Color.Violet);
 
         }
 

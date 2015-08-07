@@ -19,6 +19,11 @@ namespace WorkWatcher
         /// </summary>
         MainForm itsMainForm;
 
+        /// <summary>
+        /// The week view panel to display 
+        /// </summary>
+        WeekViewPanel itsWeekViewPanel;
+
         #endregion
 
         #region Constructor
@@ -28,6 +33,12 @@ namespace WorkWatcher
             InitializeComponent();
 
             itsMainForm = parentForm;
+
+            // Add a week view panel as default
+            itsWeekViewPanel = new WeekViewPanel(this);
+            itsWeekViewPanel.Dock = DockStyle.Fill;
+
+            itsSplitContainerHorizontal.Panel1.Controls.Add(itsWeekViewPanel);
 
         }
 
@@ -80,8 +91,8 @@ namespace WorkWatcher
                 return false;
             }
 
-            // Successfully added so update group box
-            UpdateTopicsGroupBoxPanel();
+            // Successfully added so update GUI
+            UpdateEntireGUI();
 
             return true;
         }
@@ -115,8 +126,8 @@ namespace WorkWatcher
                 return false;
             }
 
-            // Successfully updated so update group box
-            UpdateTopicsGroupBoxPanel();
+            // Successfully updated so update GUI
+            UpdateEntireGUI();
 
             return true;
 
@@ -140,8 +151,8 @@ namespace WorkWatcher
                 return false;
             }
 
-            // Successfully updated so update group box
-            UpdateTopicsGroupBoxPanel();
+            // Successfully updated so update GUI
+            UpdateEntireGUI();
 
             return true;
         }
@@ -194,6 +205,7 @@ namespace WorkWatcher
         internal void UpdateEntireGUI()
         {
             UpdateTopicsGroupBoxPanel();
+            itsWeekViewPanel.UpdateWeekViewPanel();
         }
 
         /// <summary>
