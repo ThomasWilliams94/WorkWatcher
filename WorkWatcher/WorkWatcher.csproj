@@ -78,6 +78,42 @@
     <Compile Include="TopicLabelCustomControl.Designer.cs">
       <DependentUpon>TopicLabelCustomControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="WeekViewColumnHeaders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WeekViewColumnHeaders.Designer.cs">
+      <DependentUpon>WeekViewColumnHeaders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeekViewHeaderPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WeekViewHeaderPanel.Designer.cs">
+      <DependentUpon>WeekViewHeaderPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeekViewPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WeekViewPanel.Designer.cs">
+      <DependentUpon>WeekViewPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeekViewTaskPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WeekViewTaskPanel.Designer.cs">
+      <DependentUpon>WeekViewTaskPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeekViewTopicPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WeekViewTopicPanel.Designer.cs">
+      <DependentUpon>WeekViewTopicPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeekViewTopicRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WeekViewTopicRow.Designer.cs">
+      <DependentUpon>WeekViewTopicRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkWatcherData.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -102,6 +138,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TopicLabelCustomControl.resx">
       <DependentUpon>TopicLabelCustomControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeekViewColumnHeaders.resx">
+      <DependentUpon>WeekViewColumnHeaders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeekViewHeaderPanel.resx">
+      <DependentUpon>WeekViewHeaderPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeekViewPanel.resx">
+      <DependentUpon>WeekViewPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeekViewTaskPanel.resx">
+      <DependentUpon>WeekViewTaskPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeekViewTopicPanel.resx">
+      <DependentUpon>WeekViewTopicPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeekViewTopicRow.resx">
+      <DependentUpon>WeekViewTopicRow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
